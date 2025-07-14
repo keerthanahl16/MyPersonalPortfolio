@@ -1,0 +1,376 @@
+/* General Styles */
+:root {
+    --primary-color: #007bff; /* Blue */
+    --secondary-color: #6c757d; /* Gray */
+    --dark-bg: #212529; /* Dark background */
+    --light-text: #f8f9fa; /* Light text */
+    --card-bg: #343a40; /* Darker card background */
+    --border-color: #495057; /* Border color */
+
+    /* New: Light bluish background color */
+    --portfolio-bg-color: #34495e; /* A nice dark bluish gray */
+    --lighter-card-bg: #415a77; /* Slightly lighter for sections */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--portfolio-bg-color); /* Changed to bluish color */
+    color: var(--light-text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Header & Navigation */
+header {
+    background: var(--portfolio-bg-color); /* Match new background */
+    color: var(--light-text);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* Optional: subtle shadow */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: var(--light-text);
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+#hero {
+    height: 70vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text);
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: var(--portfolio-bg-color); /* Match new background */
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--light-text);
+    padding: 30px 20px; /* Increased padding */
+    background: rgba(0, 0, 0, 0.4); /* Optional: slight overlay for readability */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Stronger shadow for content */
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: var(--light-text);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--light-text);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+/* New: Avatar Styling */
+.avatar-container {
+    margin-bottom: 20px;
+}
+
+.avatar-img {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures image covers the circle */
+    border: 5px solid var(--primary-color); /* Border around avatar */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); /* Glow effect */
+    animation: pulse 2s infinite alternate; /* Optional: subtle pulse animation */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(0, 123, 255, 0.7); }
+    100% { transform: scale(1.05); box-shadow: 0 0 25px rgba(0, 123, 255, 1); }
+}
+
+/* New: Animated Name Styling */
+.animated-name {
+    display: inline-block; /* Essential for transform animations */
+    animation: jumpAndFloat 2s infinite ease-in-out; /* Apply animation */
+    white-space: nowrap; /* Prevents name from breaking into new lines */
+}
+
+/* Keyframes for the jump/float animation */
+@keyframes jumpAndFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-8px); /* Adjust jump height */
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-4px); /* Smaller second jump */
+    }
+}
+
+
+/* Section Styling */
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+section:nth-of-type(even) {
+    background-color: var(--lighter-card-bg); /* Alternate background for sections */
+}
+section:nth-of-type(odd) {
+    background-color: var(--portfolio-bg-color); /* Main background for other sections */
+}
+
+/* Projects Section */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* <-- CHANGED FOR 2 COLUMNS */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-item {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for hover */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+.project-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-item h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.project-item p {
+    flex-grow: 1;
+    margin-bottom: 15px;
+}
+
+.project-links a {
+    margin: 0 10px;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.project-links a i {
+    margin-right: 5px;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.skill-item {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.skill-item i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.skill-item p {
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Contact Section */
+.contact-intro-text {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    display: flex; /* Makes it a flex container */
+    justify-content: center; /* Centers items horizontally */
+    flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+    gap: 20px; /* Adds space between the link paragraphs */
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+.contact-info p {
+    margin: 0; /* Remove default paragraph margin */
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background: var(--portfolio-bg-color); /* Match new background */
+    color: var(--light-text);
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px 10px 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr; /* Stack projects vertically on small screens */
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .avatar-img {
+        width: 120px;
+        height: 120px;
+    }
+}
